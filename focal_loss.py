@@ -56,7 +56,7 @@ def focal_loss_sigmoid_on_multi_classification(labels, logits, gamma=2):
 	labels = tf.one_hot(labels,depth=y_pred.shape[1]) # [0,1,2,3] -> [[0.,0.,0.,0.], [0.,1.,0.,.0], xxx], dtype=float32
 
 	loss = -labels * ((1 - y_pred) ** gamma) * tf.log(y_pred)
-	loss = tf.reduce_sum(L, axis=1)
+	loss = tf.reduce_sum(loss, axis=1)
 	return loss
 
 
